@@ -1,15 +1,21 @@
-import { _stacks, deleteLinesOfTxt, splitAndCollectData, printResultOfTopStack, DofirstMove, DoSecondMove, DoAllMoves } from './p1';
+import { _stacks, deleteLinesOfTxt, splitAndCollectData, printResultOfTopStack, DofirstMove, DoSecondMove, DofirstMove9001, crateMover9001, crateMover9000 } from './p2';
 import * as fs from 'node:fs/promises';
 const bufferTest = await fs.readFile('test.txt');
 const buffer = await fs.readFile('input.txt');
+const bufferTest2 = await fs.readFile('test2.txt');
 let initStack = structuredClone(_stacks);
 let stackTest1 = structuredClone(_stacks);
 let stackTest2 = structuredClone(_stacks);
+let stackTestPart1 = structuredClone(_stacks);
+let stackTest3 = structuredClone(_stacks);
+let stackTestPart2 = structuredClone(_stacks);
 const textInput = bufferTest.toString();
 const content = buffer.toString();
+const text2 = bufferTest2.toString();
 const newContent = deleteLinesOfTxt(10, content);
 const vecDatas = splitAndCollectData(textInput);
 const vecDataContent = splitAndCollectData(newContent);
+const vecDataTest2 = splitAndCollectData(text2);
 describe('Rearranged crates between stacks', () => {
     test('should return 3 numbers of each rows -> 12, 4, 1', () => {
         let move = 0;
@@ -49,9 +55,19 @@ describe('Rearranged crates between stacks', () => {
         let result = printResultOfTopStack(stackTest2);
         expect(result).toEqual("BFQLQGHNR");
     });
-    test('should return stacks secret after second move BSDMQFLSP', () => {
-        DoAllMoves(vecDataContent, _stacks);
-        let result = printResultOfTopStack(_stacks);
+    test('CrateMover9000 should return stacks secret after all moves BSDMQFLSP', () => {
+        crateMover9000(vecDataContent, stackTestPart1);
+        let result = printResultOfTopStack(stackTestPart1);
         expect(result).toEqual("BSDMQFLSP");
+    });
+    test('should return stacks secret after one move DFQBQGHVR', () => {
+        DofirstMove9001(vecDataTest2, stackTest3);
+        let result = printResultOfTopStack(stackTest3);
+        expect(result).toEqual("DFQBQGHVR");
+    });
+    test('CrateMover9001 should return stacks secret after all moves PGSQBFLDP', () => {
+        crateMover9001(vecDataContent, stackTestPart2);
+        let result = printResultOfTopStack(stackTestPart2);
+        expect(result).toEqual("PGSQBFLDP");
     });
 });

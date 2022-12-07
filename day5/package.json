@@ -9,7 +9,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "tsc && node ./build/p1.js",
+    "dev": "tsc && node ./build/script.js",
     "test": "jest --clearCache && node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll -c ./jest.unit.ts",
     "jest": "jest -c ./jest.unit.ts",
     "test:coverage": "jest --coverage -c ./jest.unit.ts on"

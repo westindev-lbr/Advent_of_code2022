@@ -100,7 +100,7 @@ export const DoSecondMove = (vecData, map) => {
         }
     }
 };
-export const DoAllMoves = (vecData, map) => {
+export const crateMover9000 = (vecData, map) => {
     let move = 0;
     let from = 0;
     let to = 0;
@@ -116,13 +116,51 @@ export const DoAllMoves = (vecData, map) => {
         }
     }
 };
-//initTabStacks();
-//fillMapOfStack();
+export const crateMover9001 = (vecData, map) => {
+    let move = 0;
+    let from = 0;
+    let to = 0;
+    for (let i = 0; i < vecData.length - 2; i += 3) {
+        move = vecData[i];
+        from = vecData[i + 1];
+        to = vecData[i + 2];
+        let size = map?.get(from)?.length;
+        let sp = size - move;
+        let fp = sp;
+        for (let j = 0; j < move; j++) {
+            let val = map?.get(from)[fp];
+            map?.get(to).push(val);
+            fp++;
+        }
+        map?.get(from).splice(sp, move);
+    }
+};
+export const DofirstMove9001 = (vecData, map) => {
+    let move = 0;
+    let from = 0;
+    let to = 0;
+    for (let i = 0; i < 3; i += 3) {
+        move = vecData[i];
+        from = vecData[i + 1];
+        to = vecData[i + 2];
+        let size = map?.get(from)?.length;
+        let sp = size - move;
+        let fp = sp;
+        for (let j = 0; j < move; j++) {
+            let val = map?.get(from)[fp];
+            map?.get(to).push(val);
+            fp++;
+        }
+        map?.get(from).splice(sp, move);
+    }
+};
+initTabStacks();
+fillMapOfStack();
 const prog = () => {
     let result = "";
     const newContent = deleteLinesOfTxt(10, content);
     const vecDatas = splitAndCollectData(newContent);
-    DoAllMoves(vecDatas, _stacks);
+    crateMover9000(vecDatas, _stacks);
     result = printResultOfTopStack(_stacks);
     return result;
 };

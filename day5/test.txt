@@ -1,0 +1,2 @@
+move 12 from 4 to 1
+move 25 from 4 to 8

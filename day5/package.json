@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "@types/node": "^18.11.11",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "tsc && node ./build/p1.js",
+    "test": "jest --clearCache && node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll -c ./jest.unit.ts",
+    "jest": "jest -c ./jest.unit.ts",
+    "test:coverage": "jest --coverage -c ./jest.unit.ts on"
+  }
+}

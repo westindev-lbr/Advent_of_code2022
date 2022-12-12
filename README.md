@@ -5,4 +5,5 @@
 * Day-3 : C
 * Day-4 : C
 * Day-5 : TypeScript
+* Day-6 : TypeScript
 * 

@@ -5,7 +5,7 @@ const bufferFinal = await fs.readFile('input.txt');
 // Tableau avec l'ensemble des lignes du fichier
 const contentFinal = bufferFinal.toString();
 
-//  On doit lire une chaine 
+// On doit lire une chaine 
 // détecter le premier bloc de 4 chars contenant 4 chars différents
 // Découper en bloc de 4 chars
 export const splitIn4charsBlock = (str: string) : Array<string> =>  {
@@ -23,7 +23,6 @@ export const splitIn4charsBlock = (str: string) : Array<string> =>  {
 
 // checker dans chaque bloc si il y a des doublons.
 export const hasDuplicatesChars = (block: string):boolean => {
-    // on pourrait verifier si la 1ere lettre est présente plus d'une fois
     for (let i = 0; i < block.length; i++) {
         let c = block[i];
         for (let j = i+1; j < block.length; j++) {
@@ -34,6 +33,7 @@ export const hasDuplicatesChars = (block: string):boolean => {
     return false;
 }
 
+// retourne l'index du 1er bloc sans doublons trouvé
 export const indexOfMarker = (tabString: Array<string>): number => {
     for (let index in tabString) {
         if (!hasDuplicatesChars(tabString[index])) {
@@ -43,6 +43,7 @@ export const indexOfMarker = (tabString: Array<string>): number => {
     return -1;
 }
 
+// Decouper en bloc de 14 chars à chaque iterations de la string
 export const splitIn14CharsBlock = (str: string): Array<string> => {
     let res: Array<string> = [];
     let temp = str.match(/[a-z]/ig)?.join("");

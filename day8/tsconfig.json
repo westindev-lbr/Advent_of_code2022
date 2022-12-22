@@ -1,0 +1,1 @@
+{ "compilerOptions": { "target": "ES2022", "module": "ES2022", "rootDir": "./", "moduleResolution": "node", "types": ["jest", "node"], "outDir": "./build", "esModuleInterop": true, "forceConsistentCasingInFileNames": true, "strict": true, "skipLibCheck": true } }

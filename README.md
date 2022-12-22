@@ -7,3 +7,4 @@
 * Day 5 : TypeScript
 * Day 6 : TypeScript
 * Day 7 : TypeScript
+* Day 8 : TypeScript
